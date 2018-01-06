@@ -1,0 +1,2 @@
+# k8s_baiduyun_uploader
+下载kubernetes相关文件并上传到百度云
