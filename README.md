@@ -12,9 +12,17 @@ Linux (or cygwin) with php & curl installed.
 敲下命令直接进入快速初始化流程，输入y，然后打开浏览器访问 https://openapi.baidu.com/device ，在“请输入设备上显示的用户授权码：”文本框中输入上面显示的授权码（如12abcxyz），并点击继续。 看到网页上显示“请返回设备继续操作！”后，返回ssh上按下回车后，即完成了初始化配置。
 
 
-上传k8s:
+上传kubernetes自身组件:
 ``` sh
-./upload 1.9.1
+mkdir k8s
+./k8s_uploader 1.9.1
 ```
 它会下载kuernetes相关文件然后上传到你的网盘路径：`我的应用数据/bpcs_uploader/1.9.1/1` (前提是你服务器的所在的网络能够下载到kubernetes的文件)
+
+上传etcd:
+``` sh
+mkdir etcd
+./etcd_uploader 3.1.10
+```
+它会下载etcd在Github Release上的压缩包上传到你的网盘路径：`我的应用数据/bpcs_uploader/` 
 

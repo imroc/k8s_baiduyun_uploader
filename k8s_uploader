@@ -1,0 +1,20 @@
+#! /bin/bash
+
+set -eux
+
+mkdir k8s/$1
+cd k8s/$1
+
+wget https://github.com/kubernetes/kubernetes/releases/download/v$1/kubernetes.tar.gz
+
+tar -zxvf kubernetes.tar.gz
+
+KUBERNETES_SKIP_CONFIRM=1 ./kubernetes/cluster/get-kube-binaries.sh
+
+cd -
+
+./bpcs_uploader.php upload k8s/$1/kubernetes.tar.gz $1/kubernetes.tar.gz
+./bpcs_uploader.php upload k8s/$1/kubernetes/server/kubernetes-server-linux-amd64.tar.gz $1/kubernetes-server-linux-amd64.tar.gz
+
+rm -rf k8s/$1
+

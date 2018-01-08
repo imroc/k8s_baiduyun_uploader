@@ -1,0 +1,12 @@
+#! /bin/bash
+
+set -eux
+
+cd /etcd
+
+wget https://github.com/coreos/etcd/releases/download/v$1/etcd-v$1-linux-amd64.tar.gz
+
+cd -
+./bpcs_uploader.php upload etcd/etcd-v$1-linux-amd64.tar.gz etcd-v$1-linux-amd64.tar.gz
+
+rm etcd/etcd-v$1-linux-amd64.tar.gz
